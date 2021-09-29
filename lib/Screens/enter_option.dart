@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, dead_code, avoid_print, duplicate_ignore
 
 import 'package:apni_kaksha/Screens/Login_Register/Login/login.dart';
-import 'package:apni_kaksha/Screens/Login_Register/Register/phone_no.dart';
+import 'package:apni_kaksha/Screens/Login_Register/Register/phn_number.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -128,7 +128,7 @@ Widget optionPageLayout(BuildContext context) {
                             MaterialStateProperty.all(Color(0xffF6D7DA))),
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => PhoneNumber()));
+                          builder: (context) => PhoneNumberScreen()));
                     },
                     child: Padding(
                       padding: EdgeInsets.symmetric(vertical: 10.h),
