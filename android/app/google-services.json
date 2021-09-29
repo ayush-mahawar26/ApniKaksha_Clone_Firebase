@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "154423237636",
+    "project_id": "apnikakshaproject",
+    "storage_bucket": "apnikakshaproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154423237636:android:1d95dc6f96e830ee176951",
+        "android_client_info": {
+          "package_name": "com.example.apni_kaksha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154423237636-qntof8du9grvks7mmhfkdeeh7d0pu552.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.apni_kaksha",
+            "certificate_hash": "76c664521d0e98ba239907abbbce2f5faaab6c43"
+          }
+        },
+        {
+          "client_id": "154423237636-1gvtrjfb2363jhoh8qrp8ahr8lhdmh41.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvjj8ZDjSjMkOGZY2qABOY0pPdeU45rxk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154423237636-1gvtrjfb2363jhoh8qrp8ahr8lhdmh41.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
