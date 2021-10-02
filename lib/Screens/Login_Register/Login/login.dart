@@ -1,5 +1,6 @@
-// ignore_for_file: prefer_const_constructors,
+// ignore_for_file: prefer_const_constructors,, unnecessary_null_comparison
 
+import 'package:apni_kaksha/Screens/Services/auth_services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,6 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
+  AuthService authService = AuthService();
 
   bool isSecure = true;
   Icon currentIcon = Icon(
@@ -157,7 +159,18 @@ class _LoginPageState extends State<LoginPage> {
                                       RoundedRectangleBorder(
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(10.r))))),
-                              onPressed: () {},
+                              onPressed: () {
+                                if (email.text == null || email.text.isEmpty) {
+                                  authService.showToast(
+                                      "Enter Email Adrress / Phone Number");
+                                } else if (password.text.isEmpty ||
+                                    password.text == null) {
+                                  authService.showToast("Enter Password");
+                                } else {
+                                  authService.signInwithEmailAndPassword(
+                                      context, email.text, password.text);
+                                }
+                              },
                               child: Padding(
                                 padding: EdgeInsets.symmetric(vertical: 10),
                                 child: Text(
