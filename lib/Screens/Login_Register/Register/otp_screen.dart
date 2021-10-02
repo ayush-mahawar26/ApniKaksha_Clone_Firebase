@@ -96,6 +96,9 @@ class _OTPScreenState extends State<OTPScreen> {
                 child: Row(
                   children: [
                     InkWell(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
                       child: Icon(
                         CupertinoIcons.back,
                         color: Colors.grey[400],

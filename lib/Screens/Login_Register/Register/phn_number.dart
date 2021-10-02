@@ -32,7 +32,9 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
                     color: Colors.grey[400],
                     size: 20.sp,
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
                 ),
                 Text(
                   "Back",

@@ -101,6 +101,9 @@ class _AskingInfoState extends State<AskingInfo> {
               child: Row(
                 children: [
                   InkWell(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
                     child: Icon(
                       CupertinoIcons.back,
                       color: Colors.grey[400],
@@ -345,8 +348,9 @@ registerUser(
       SharedPreferences pref = await SharedPreferences.getInstance();
       pref.setString("email", user.email.toString());
       print("Logged In HomeScreen");
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => HomeScreen()));
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => HomeScreen()),
+          (route) => false);
     } else {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("User Already Exist")));
