@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:apni_kaksha/Screens/Login_Register/Register/phn_number.dart';
 import 'package:apni_kaksha/Screens/enter_option.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';

@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:apni_kaksha/Screens/Login_Register/Register/otp_scr.dart';
+import 'package:apni_kaksha/Screens/Login_Register/Register/otp_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,7 +14,6 @@ class PhoneNumberScreen extends StatefulWidget {
 }
 
 class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
-  static GlobalKey<FormFieldState> _formKey = GlobalKey<FormFieldState>();
   var poppins = GoogleFonts.poppins().fontFamily;
   var phnNumber = TextEditingController();
   @override
