@@ -162,7 +162,7 @@ class _LoginPageState extends State<LoginPage> {
                               onPressed: () {
                                 if (email.text == null || email.text.isEmpty) {
                                   authService.showToast(
-                                      "Enter Email Adrress / Phone Number");
+                                      "Enter Email Address / Phone Number");
                                 } else if (password.text.isEmpty ||
                                     password.text == null) {
                                   authService.showToast("Enter Password");
