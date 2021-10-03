@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors, avoid_print
-import 'package:apni_kaksha/Screens/enter_option.dart';
 import 'package:apni_kaksha/wrapper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
