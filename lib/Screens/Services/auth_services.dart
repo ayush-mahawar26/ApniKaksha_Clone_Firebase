@@ -1,6 +1,5 @@
 import 'package:apni_kaksha/Screens/MainScreen/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AuthService {
   final _auth = FirebaseAuth.instance;
 
-  // Stayed Login Stream
+  // Stayed Login Stream -> For stayed login
   Stream<User?> get userCheck {
     return _auth.authStateChanges().map((event) => _auth.currentUser);
   }

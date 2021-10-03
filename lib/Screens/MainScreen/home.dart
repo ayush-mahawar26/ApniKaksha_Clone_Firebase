@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:apni_kaksha/Screens/MainScreen/Widget/drawer.dart';
 import 'package:apni_kaksha/Screens/MainScreen/category_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,12 +21,25 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        drawer: DrawerWidget().drawer(context),
         appBar: AppBar(
           toolbarHeight: 60.h,
           backgroundColor: Colors.white,
           elevation: 0,
           centerTitle: true,
+          iconTheme: IconThemeData(color: Colors.black),
 
+          actions: [
+            InkWell(
+              child: Icon(
+                CupertinoIcons.bell,
+                size: 20.sp,
+              ),
+            ),
+            SizedBox(
+              width: 20.w,
+            )
+          ],
           // Take to the Caterogy page
           title: InkWell(
             onTap: () {
@@ -33,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   .push(MaterialPageRoute(builder: (_) => Category()));
             },
             child: Container(
-              width: MediaQuery.of(context).size.width.w / 1.5,
+              width: MediaQuery.of(context).size.width.w * 0.5,
               decoration: BoxDecoration(
                 color: Colors.pink,
                 borderRadius: BorderRadius.circular(25.r),
@@ -53,6 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Icon(
                       CupertinoIcons.chevron_down_circle,
                       size: 16.sp,
+                      color: Colors.white,
                     )
                   ],
                 ),

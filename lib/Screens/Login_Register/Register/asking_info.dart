@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class AskingInfo extends StatefulWidget {
   String phnNumber;
@@ -345,9 +344,6 @@ registerUser(
       user.updateEmail(email);
       user.updatePassword(password);
 
-      SharedPreferences pref = await SharedPreferences.getInstance();
-      pref.setString("email", user.email.toString());
-      print("Logged In HomeScreen");
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (context) => HomeScreen()),
           (route) => false);
