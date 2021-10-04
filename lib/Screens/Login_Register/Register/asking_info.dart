@@ -340,7 +340,7 @@ registerUser(
   if (user != null) {
     if (user.email == null) {
       // Entering Users credential
-      user.updateDisplayName(name);
+      await user.updateDisplayName(name);
       user.updateEmail(email);
       user.updatePassword(password);
 
@@ -350,6 +350,7 @@ registerUser(
     } else {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("User Already Exist")));
+      _auth.signOut();
     }
   }
 }

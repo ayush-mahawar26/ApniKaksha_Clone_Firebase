@@ -1,5 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:apni_kaksha/Screens/MainScreen/Widget/BottomAppBar%20Screen/download.dart';
+import 'package:apni_kaksha/Screens/MainScreen/Widget/BottomAppBar%20Screen/help.dart';
+import 'package:apni_kaksha/Screens/MainScreen/Widget/BottomAppBar%20Screen/home_screen.dart';
+import 'package:apni_kaksha/Screens/MainScreen/Widget/BottomAppBar%20Screen/let_study.dart';
+import 'package:apni_kaksha/Screens/MainScreen/Widget/BottomAppBar%20Screen/my_zone.dart';
 import 'package:apni_kaksha/Screens/MainScreen/Widget/drawer.dart';
 import 'package:apni_kaksha/Screens/MainScreen/category_page.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,13 +20,51 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  BottomNavigationBarItem bottomItem(Icon icon, String title) {
+    return BottomNavigationBarItem(
+        icon: icon, label: title, backgroundColor: Colors.white);
+  }
+
   var poppins = GoogleFonts.poppins().fontFamily;
+  int currentPageIndex = 0;
+  final List<Widget> _screens = <Widget>[
+    HomePage(),
+    LetStudy(),
+    Download(),
+    MyZone(),
+    HelpPage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         drawer: DrawerWidget().drawer(context),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          selectedLabelStyle: TextStyle(fontFamily: poppins),
+          selectedFontSize: 13.sp,
+          unselectedFontSize: 12.sp,
+          items: [
+            bottomItem(Icon(CupertinoIcons.home), "Home"),
+            bottomItem(Icon(CupertinoIcons.play_circle_fill), "Let's Study"),
+            bottomItem(Icon(Icons.file_download_outlined), "Download"),
+            bottomItem(Icon(CupertinoIcons.folder_solid), "My Zone"),
+            bottomItem(Icon(CupertinoIcons.question_square_fill), "Help"),
+          ],
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.grey,
+          showUnselectedLabels: true,
+          iconSize: 25.sp,
+          currentIndex: currentPageIndex,
+          unselectedLabelStyle:
+              TextStyle(color: Colors.grey, fontFamily: poppins),
+          onTap: (index) {
+            setState(() {
+              currentPageIndex = index;
+            });
+          },
+        ),
         appBar: AppBar(
           toolbarHeight: 60.h,
           backgroundColor: Colors.white,
@@ -75,9 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        body: Center(
-          child: Text("Home Screen"),
-        ),
+        body: _screens.elementAt(currentPageIndex),
       ),
     );
   }

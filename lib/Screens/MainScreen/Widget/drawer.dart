@@ -8,7 +8,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 class DrawerWidget {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-
   Widget drawer(BuildContext context) {
     String? userName = _auth.currentUser!.displayName;
     return SizedBox(

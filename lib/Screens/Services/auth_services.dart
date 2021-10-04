@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthService {
   final _auth = FirebaseAuth.instance;
@@ -28,17 +27,20 @@ class AuthService {
   // fuction for Sign In with Email and password
   signInwithEmailAndPassword(
       BuildContext context, String email, String password) async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-      User? user = _auth.currentUser;
-      pref.setString("email", user!.email.toString());
       Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(builder: (context) => const HomeScreen()),
           (route) => false);
-    } catch (e) {
-      showToast(e.toString());
+    } on FirebaseAuthException catch (e) {
+      if (e.code == "user-not-found") {
+        showToast("User Not Found");
+      } else if (e.code == "wrong-password") {
+        showToast("Invalid Password");
+      } else {
+        showToast(e.toString());
+      }
     }
   }
 }

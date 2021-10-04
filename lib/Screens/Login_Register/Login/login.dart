@@ -89,9 +89,9 @@ class _LoginPageState extends State<LoginPage> {
                                       Radius.circular(20.r))))),
                       Column(
                         children: [
-                          labelText("E - Mail Address / Phone Number",
+                          labelText("E - Mail Address",
                               Icon(CupertinoIcons.phone_fill)),
-                          entryBox("E - Mail Address / Phone Number", email),
+                          entryBox("E - Mail Address", email),
                         ],
                       ),
 
@@ -161,8 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                                               Radius.circular(10.r))))),
                               onPressed: () {
                                 if (email.text == null || email.text.isEmpty) {
-                                  authService.showToast(
-                                      "Enter Email Address / Phone Number");
+                                  authService.showToast("Enter Email Address");
                                 } else if (password.text.isEmpty ||
                                     password.text == null) {
                                   authService.showToast("Enter Password");
