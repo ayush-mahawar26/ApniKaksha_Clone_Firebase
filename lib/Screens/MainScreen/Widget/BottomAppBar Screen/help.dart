@@ -27,8 +27,7 @@ class _HelpPageState extends State<HelpPage> {
     return SizedBox(
       width: MediaQuery.of(context).size.width.w,
       height: MediaQuery.of(context).size.height.h,
-      child: Expanded(
-          child: SingleChildScrollView(
+      child: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
           child: Column(
@@ -132,7 +131,7 @@ class _HelpPageState extends State<HelpPage> {
             ],
           ),
         ),
-      )),
+      ),
     );
   }
 }

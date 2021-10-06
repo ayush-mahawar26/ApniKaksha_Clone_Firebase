@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:apni_kaksha/Screens/MainScreen/Widget/LetsStudy/coding_playlist.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,6 +14,7 @@ class LetStudy extends StatefulWidget {
 
 class _LetStudyState extends State<LetStudy> {
   var poppins = GoogleFonts.poppins().fontFamily;
+  Color blacktype = Color(0xff051119);
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +35,16 @@ class _LetStudyState extends State<LetStudy> {
             SizedBox(
               height: 10.h,
             ),
-            cardTopic("Coding", "assets/code.jpg", context),
-            cardTopic("Jee", "assets/jee.jpg", context),
-            cardTopic("Boards XII", "assets/boards.jpg", context),
+            cardTopic("Coding", "assets/code.jpg", context, () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => CodingPlaylist()));
+            }),
+            cardTopic("Jee", "assets/jee.jpg", context, () {
+              print("JEE");
+            }),
+            cardTopic("Boards XII", "assets/boards.jpg", context, () {
+              print("Boards");
+            }),
           ],
         ),
       ),
@@ -43,12 +52,13 @@ class _LetStudyState extends State<LetStudy> {
   }
 }
 
-Widget cardTopic(String title, String imagePath, BuildContext context) {
+Widget cardTopic(String title, String imagePath, BuildContext context,
+    Function performThis) {
   return Padding(
     padding: EdgeInsets.symmetric(vertical: 10.h),
     child: InkWell(
       onTap: () {
-        print(title);
+        performThis();
       },
       child: SizedBox(
         width: MediaQuery.of(context).size.width.w,

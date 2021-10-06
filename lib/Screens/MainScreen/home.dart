@@ -108,8 +108,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           fontWeight: FontWeight.w600),
                     ),
                     Icon(
-                      CupertinoIcons.chevron_down_circle,
-                      size: 16.sp,
+                      Icons.arrow_drop_down,
+                      size: 20.sp,
                       color: Colors.white,
                     )
                   ],
