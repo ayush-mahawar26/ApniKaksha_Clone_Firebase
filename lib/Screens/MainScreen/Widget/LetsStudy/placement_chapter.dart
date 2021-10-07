@@ -1,3 +1,6 @@
+// ignore_for_file: must_be_immutable
+
+import 'package:apni_kaksha/Screens/MainScreen/Widget/LetsStudy/theory_vedio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,7 +19,11 @@ class PlacementChapter extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: blacktype,
           elevation: 0,
-          leading: Icon(Icons.arrow_back, color: Colors.white, size: 20.sp),
+          leading: InkWell(
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+              child: Icon(Icons.arrow_back, color: Colors.white, size: 20.sp)),
           title: Image(
             image: const AssetImage("assets/apnikaksha.png"),
             height: 50.h,
@@ -41,36 +48,58 @@ class PlacementChapter extends StatelessWidget {
               SizedBox(
                 height: 10.h,
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10.r)),
-                ),
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width.w,
-                  child: ListTile(
-                    onTap: () {},
-                    leading: Image(
-                      image: const AssetImage("assets/apnikaksha.png"),
-                      height: 80.h,
-                      width: 80.w,
-                    ),
-                    title: Text(
-                      "Theory Subjects - Big 4",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20.sp,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: poppins),
-                    ),
-                    trailing: Icon(CupertinoIcons.forward,
-                        size: 25.sp, color: Colors.black),
-                  ),
-                ),
-              )
+              cardForLecture(context, "Theory Subject - Big 4", () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const TheoryLecture()));
+              })
             ],
           ),
         ),
       ),
     );
   }
+}
+
+Widget cardForLecture(
+  BuildContext context,
+  String title,
+  Function toPerform,
+) {
+  return Card(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(10.r)),
+    ),
+    child: SizedBox(
+      width: MediaQuery.of(context).size.width.w,
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          vertical: 10.h,
+        ),
+        child: ListTile(
+          onTap: () {
+            toPerform();
+          },
+          leading: Image(
+            image: const AssetImage("assets/apnikaksha.png"),
+            height: 80.h,
+            width: 80.w,
+          ),
+          title: Text(
+            title,
+            style: TextStyle(
+                color: Colors.black,
+                fontSize: 20.sp,
+                fontWeight: FontWeight.w600,
+                fontFamily: GoogleFonts.poppins().fontFamily),
+          ),
+          trailing: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(CupertinoIcons.forward, size: 25.sp, color: Colors.black),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
 }

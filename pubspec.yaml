@@ -35,7 +35,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_screenutil: ^5.0.0+2
-  # flutter_secure_storage: ^4.2.1
+  youtube_player_flutter: ^8.0.0
   fluttertoast: ^8.0.8
   google_fonts: ^2.1.0
   otp_text_field: ^1.1.1

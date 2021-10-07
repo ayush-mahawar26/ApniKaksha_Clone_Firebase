@@ -29,7 +29,7 @@ class LectureVedioPlayer extends StatelessWidget {
           appBar: AppBar(
               centerTitle: true,
               title: Image(
-                image: AssetImage("assets/apnikaksha.png"),
+                image: const AssetImage("assets/apnikaksha.png"),
                 width: 50.h,
                 height: 50.h,
               ),
@@ -52,7 +52,7 @@ class LectureVedioPlayer extends StatelessWidget {
                 child: YoutubePlayer(
                   controller: _controller,
                   showVideoProgressIndicator: true,
-                  progressColors: ProgressBarColors(
+                  progressColors: const ProgressBarColors(
                     playedColor: Colors.amber,
                     handleColor: Colors.amberAccent,
                   ),

@@ -1,4 +1,5 @@
-// ignore_for_file: unnecessary_null_comparison, must_be_immutable
+// ignore_for_file: must_be_immutable, unnecessary_null_comparison
+
 import 'package:apni_kaksha/Screens/MainScreen/Widget/lecture_play_scr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
