@@ -15,11 +15,11 @@ void main() async {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
-  runApp(DevicePreview(
-    builder: (_) => MyApp(),
-    enabled: !kReleaseMode,
-  ));
-  // runApp(MyApp());
+  // runApp(DevicePreview(
+  //   builder: (_) => MyApp(),
+  //   enabled: !kReleaseMode,
+  // ));
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {

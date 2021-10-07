@@ -4,7 +4,7 @@ import 'package:apni_kaksha/Models/item_vedio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LectureVedioPlayer extends StatelessWidget {
@@ -15,14 +15,15 @@ class LectureVedioPlayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String? vedioID = YoutubePlayer.convertUrlToId(item.link);
+    String? vedioID = YoutubePlayerController.convertUrlToId(item.link);
 
     if (vedioID != null) {
       YoutubePlayerController _controller = YoutubePlayerController(
           initialVideoId: vedioID.toString(),
-          flags: YoutubePlayerFlags(
+          params: YoutubePlayerParams(
             autoPlay: true,
             mute: false,
+            showControls: true,
           ));
       return SafeArea(
         child: Scaffold(
@@ -49,13 +50,8 @@ class LectureVedioPlayer extends StatelessWidget {
             children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width.w,
-                child: YoutubePlayer(
+                child: YoutubePlayerIFrame(
                   controller: _controller,
-                  showVideoProgressIndicator: true,
-                  progressColors: const ProgressBarColors(
-                    playedColor: Colors.amber,
-                    handleColor: Colors.amberAccent,
-                  ),
                 ),
               ),
               Padding(
