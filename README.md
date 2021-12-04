@@ -1,7 +1,7 @@
 
 # Apni Kaksha Clone - (Using Firebase)
 
-Clone App of Apni kaksha , available at playstore .
+Responsive Clone App of Apni kaksha , available at playstore .
 
 ## Screenshots
 
